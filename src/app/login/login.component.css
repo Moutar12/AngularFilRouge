@@ -1,0 +1,81 @@
+html,
+*{
+  box-sizing: border-box;
+}
+body {
+  width: 100vw;
+  display: flex;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.app-header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Bitstream Charter";
+  font-weight: bold;
+  font-size: 40px;
+  height: 120px;
+}
+
+.login-wrapper  {
+  display: flex;
+  justify-content: center;
+  box-shadow: 15px;
+  padding: 50px;
+  height: 86vh;
+  background-color: #e91e63;
+
+}
+
+.border{
+  position: absolute;
+  margin-top: 50px;
+  opacity: 1;
+  width: 100%;
+  padding: 60px 50px 40px 50px;
+  background: #fff;
+  border-radius: 10px;
+  height: 50%;
+  max-width: 530px;
+}
+.login-wrapper .example-form {
+  min-width: 100%;
+  max-width: 300px;
+  width: 100%;
+}
+
+.login-wrapper .example-full-width,
+.login-wrapper .btn-block {
+  width: 100%;
+  }
+
+.login-wrapper mat-card-header {
+  text-align: center;
+  width: 100%;
+  display: block;
+  padding: 15px;
+}
+
+.login-wrapper mat-card-header{
+  font-size: 30px;
+  margin: 0;
+}
+
+.login-wrapper .mat-card {
+  padding: 40px 70px 50px;
+}
+
+
+.login-wrapper .mat-stroked-button {
+  border: 1px solid currentColor;
+  line-height: 50px;
+  background: #FFF7FA;
+}
+
+.login-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix {
+  padding: 5px;
+}

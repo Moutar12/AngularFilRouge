@@ -1,0 +1,33 @@
+
+<!---->
+<mat-toolbar color="primary" class="app-header">
+  S'authentifier
+</mat-toolbar>
+<div class="login-wrapper">
+
+ <div class="border">
+
+
+    <form [formGroup]="formLogin" (ngSubmit)="onSubmit()"  class="example-form">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <mat-label>Username</mat-label>
+          <label>
+            <input matInput  [(ngModel)]="username" formControlName="username" placeholder="Username">
+          </label>
+        </mat-form-field><br>
+
+
+
+        <mat-form-field class="example-full-width">
+          <label>
+            <input matInput [(ngModel)]="password" formControlName="password" placeholder="Password">
+          </label>
+        </mat-form-field><br><br><br>
+      </mat-card-content>
+
+      <button mat-stroked-button color="accent" class="btn-block">Log in</button>
+    </form>
+</div>
+
+</div>
