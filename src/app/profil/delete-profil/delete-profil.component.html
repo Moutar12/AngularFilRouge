@@ -1,0 +1,16 @@
+<form (ngSubmit)="onDelete()" [formGroup]="FormLogin">
+  <mat-form-field appearance="outline">
+
+    <label>
+      <input matInput formControlName="libelle" [(ngModel)]="profil.libelle" placeholder="libelle">
+    </label>
+  </mat-form-field>
+
+  <section>
+    <div class="button-row">
+      <button mat-flat-button color="primary">Supprimer</button>
+    </div>
+  </section>
+
+  <p>add-profil works!</p>
+</form>

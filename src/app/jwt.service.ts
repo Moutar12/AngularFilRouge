@@ -13,13 +13,11 @@ import {Router} from '@angular/router';
   providedIn: 'root'
 })
 export class JwtService {
-  private currentUserSubject: BehaviorSubject<UerModel>| undefined;
-  public currentUser: Observable<UerModel> | undefined;
-  constructor(private httpClient: HttpClient,private router: Router) {
+  constructor(private httpClient: HttpClient, private router: Router) {
   }
   baseUrl = environment.baseUrl;
   helper = new JwtHelperService();
-  decode: string ;
+  decode: string | undefined ;
 
 // tslint:disable-next-line:typedef
   login(username: string | undefined, password: string | undefined){
@@ -29,20 +27,34 @@ export class JwtService {
       username, password
     }).pipe(
       map((response: any) => {
-     this.decode = this.helper.decodeToken(response.token);
-     console.log(this.decode['roles']);
+
+        const decode = this.helper.decodeToken(response.token);
+     // @ts-ignore
+        localStorage.setItem('token', response.token);
+        console.log(decode.roles);
         // tslint:disable-next-line:triple-equals
-     if ( this.decode['roles'] == 'ROLE_ADMIN') {
-            this.router.navigate(['admin']) ;
-          }
+     // @ts-ignore
+        // tslint:disable-next-line:triple-equals
+        if (decode.roles == 'ROLE_ADMIN') {
+       this.router.navigate(['admin']) ;
+     }
+        // tslint:disable-next-line:triple-equals
+     // @ts-ignore
+        // tslint:disable-next-line:triple-equals
+        if (decode.roles == 'ROLE_FORMATEUR'){
+       this.router.navigate(['formateur']) ;
+     }
+     // @ts-ignore
+        // tslint:disable-next-line:triple-equals
+        if (decode.roles == 'ROLE_APPRENANT'){
+          this.router.navigate(['apprenant']) ;
+        }
+        // @ts-ignore
+        // tslint:disable-next-line:triple-equals
+        if (decode.roles == 'ROLE_CM'){
+          this.router.navigate(['cm']) ;
+        }
       })
     );
   }
-  // tslint:disable-next-line:typedef
-  decoded(token: string): any{
-    if (token){
-      return jwt_decode(token);
-    }
-  }
-
 }
